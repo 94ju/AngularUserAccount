@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { User } from "../models/User";
 import { UserService } from "../Services/user.service";
 
@@ -11,6 +11,7 @@ export class UserComponent implements OnInit {
   user: User;
   isPersonalDetailsEditableDisabled = true;
   isContactDetailsEditableDisabled = true;
+  @ViewChild("contactList") contactList: ElementRef;
 
   constructor(private userService: UserService) {}
   ngOnInit() {
@@ -26,6 +27,7 @@ export class UserComponent implements OnInit {
   }
 
   addNewContact() {
-    this.user.contacts.push("");
+    const newContact = prompt("Enter new contact...");
+    this.user.contacts.push(newContact);
   }
 }

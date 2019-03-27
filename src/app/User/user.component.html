@@ -82,7 +82,7 @@
 
         <div class="form-group">
           <label for="fname">Contact No:</label>
-          <ul>
+          <ul #contactList>
             <li *ngFor="let contact of user.contacts">
               <input
                 [disabled]="isContactDetailsEditableDisabled"
@@ -148,7 +148,7 @@
             type="text"
             class="form-control"
             id="fname"
-            [(ngModel)]="user.Email"
+            [(ngModel)]="user.email"
           />
         </div>
       </div>
