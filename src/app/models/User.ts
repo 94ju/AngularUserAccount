@@ -1,17 +1,16 @@
-export class User{
-
-        id:string;
-        userName:string;
-        fname:string;
-        Lname:string;
-        Description:string;
-        Position:string;
-        Aboutme: string;
-        ContactNumber:[string];
-        Address: {
-            no: string,
-            street:string,
-            city: string
-        };
-        Email:string 
+export class User {
+  id: string;
+  userName: string;
+  fname: string;
+  lname: string;
+  description: string;
+  position: string;
+  aboutme: string;
+  contacts: string[];
+  address: {
+    no: string;
+    street: string;
+    city: string;
+  };
+  email: string;
 }
