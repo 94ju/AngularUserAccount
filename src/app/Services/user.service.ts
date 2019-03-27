@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { User } from "../models/User";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
@@ -21,12 +23,20 @@ export class UserService {
     },
     email: "janithHerath@gmail.com"
   };
-  constructor() {}
+  constructor(private httpClient:HttpClient) {}
   getUser(id: string): User {
+      this.getUserFromAPI().subscribe(posts=>{
+          console.log(posts)
+      });
     return this.user;
   }
   updateUser(user: User): User {
     this.user = user;
     return user;
+  }
+
+  getUserFromAPI():Observable<any>{
+      const user=this.httpClient.get('https://jsonplaceholder.typicode.com/posts');
+      return user;
   }
 }
